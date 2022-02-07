@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatcherSignalR", "FileWatcherSignalR\FileWatcherSignalR.csproj", "{07DB14E5-4836-43DE-B345-137D4744F146}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileWatcherSignalR", "FileWatcherSignalR\FileWatcherSignalR.csproj", "{07DB14E5-4836-43DE-B345-137D4744F146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatcherConsole", "FileWatcherConsole\FileWatcherConsole.csproj", "{6562BAAB-9A04-4F51-886A-61A8AFD34D31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileWatcherConsole", "FileWatcherConsole\FileWatcherConsole.csproj", "{6562BAAB-9A04-4F51-886A-61A8AFD34D31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileMonitorR", "FileMonitorR\FileMonitorR.csproj", "{05CE73BA-2EC9-4E59-A794-7B2D2CAF2DB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6562BAAB-9A04-4F51-886A-61A8AFD34D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6562BAAB-9A04-4F51-886A-61A8AFD34D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6562BAAB-9A04-4F51-886A-61A8AFD34D31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05CE73BA-2EC9-4E59-A794-7B2D2CAF2DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05CE73BA-2EC9-4E59-A794-7B2D2CAF2DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05CE73BA-2EC9-4E59-A794-7B2D2CAF2DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05CE73BA-2EC9-4E59-A794-7B2D2CAF2DB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

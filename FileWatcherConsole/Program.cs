@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FileWatcherConsole
@@ -11,15 +12,32 @@ namespace FileWatcherConsole
     {
         static async Task Main(string[] args)
         {
-            var pathA = @"D:\StudioWorks\NETCoreProjects\FileWatcherSignalR\FileWatcherConsole\dummy\a.txt";
-            var pathB = @"D:\StudioWorks\NETCoreProjects\FileWatcherSignalR\FileWatcherConsole\dummy\b.txt";
+            var path = @"D:\StudioWorks\NETCoreProjects\FileWatcherSignalR\FileWatcherConsole\data.txt";
+
+            var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(300));
+
+            var fs = new FileStream(path, FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
+            var streamWriter = new StreamWriter(fs);
+            var random = new Random();
+            while (!cancellationTokenSource.IsCancellationRequested)
+            {
+                var num = random.Next(1000);
+                Console.WriteLine(num);
+                streamWriter.WriteLine(num);
+                streamWriter.FlushAsync().Wait();
+                Task.Delay(1000).Wait();
+            }
+
+            Console.WriteLine("Completed!");
+            //var pathA = @"D:\StudioWorks\NETCoreProjects\FileWatcherSignalR\FileWatcherConsole\dummy\a.txt";
+            //var pathB = @"D:\StudioWorks\NETCoreProjects\FileWatcherSignalR\FileWatcherConsole\dummy\b.txt";
 
 
-            FileMonitor.GetMonitor(pathA, (s) => Console.WriteLine($"A First =>{s}"));
-            FileMonitor.GetMonitor(pathA, (s) => Console.WriteLine($"A Second =>{s}"));
+            //FileMonitor.GetMonitor(pathA, (s) => Console.WriteLine($"A First =>{s}"));
+            //FileMonitor.GetMonitor(pathA, (s) => Console.WriteLine($"A Second =>{s}"));
 
 
-            FileMonitor.GetMonitor(pathB, (s) => Console.WriteLine($"\tB First =>{s}"));
+            //FileMonitor.GetMonitor(pathB, (s) => Console.WriteLine($"\tB First =>{s}"));
 
 
             Console.ReadLine();
